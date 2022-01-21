@@ -1,5 +1,6 @@
 package com.owoodev.study.domain.posts;
 
+import com.owoodev.study.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,7 +39,7 @@ import javax.persistence.*;
 @Getter             // lombok Annotation
 @NoArgsConstructor  // lombok Annotation
 @Entity             // JPA Annotation
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
