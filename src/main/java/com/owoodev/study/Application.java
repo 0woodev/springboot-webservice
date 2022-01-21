@@ -2,12 +2,14 @@ package com.owoodev.study;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 /**
  * Application : Main class<br>
  * @ SpringBootApplication 로 인해 스프링 부트의 자동설정, 스프링 Bean 읽기와 생성을 모두 자동으로 설정됩니다.<br>
  * 이는 항상 프로젝트 최상단에 위치해야만 한다.
  */
+@EnableJpaAuditing
 @SpringBootApplication
 public class Application {
     /**
