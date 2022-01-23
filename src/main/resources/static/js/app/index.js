@@ -7,6 +7,10 @@ let main = {
         $('#btn-update').on('click', () => {
             main.update();
         });
+
+        document.querySelectorAll('.btn-delete').forEach(button=>{
+            button.addEventListener('click', main.deletePost);
+        });
     },
     save: () => {
         let data = {
@@ -48,7 +52,22 @@ let main = {
         }).fail((err) => {
             alert(JSON.stringify(err));
         });
-    }
+    },
+    deletePost: ({target}) => {
+        let id = target.id.split('-')[2];
+
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/v1/posts/' + id,
+            dataType: 'json',
+            contentType: 'application/json; charset="utf-8"',
+        }).done(() => {
+            alert('글이 삭제되었습니다.');
+            window.location.href='/';
+        }).fail((err) => {
+            alert(JSON.stringify(err));
+        });
+    },
 }
 
 main.init();
