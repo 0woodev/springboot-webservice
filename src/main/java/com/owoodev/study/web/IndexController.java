@@ -24,7 +24,9 @@ public class IndexController {
 
         SessionUser user = (SessionUser) httpSession.getAttribute("user");
 
-        if (user != null) model.addAttribute("userName", user.getName());
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
 
         return "index";
     }
